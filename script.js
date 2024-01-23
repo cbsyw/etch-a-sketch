@@ -1,18 +1,25 @@
 
 
-// create DIVS in container 
+// create div in container 
 
 
-const container = document.createElement('div');
-container.id = 'container';
-document.body.appendChild(container);
+// const container = document.createElement('div');
+// container.id = 'container';
+// document.body.appendChild(container);
 
 //create div grid
+
 for (let i = 0; i < 256; i++) {
     const cellDiv = document.createElement('div');
     cellDiv.className = 'cellDiv';
     container.appendChild(cellDiv);
 }
+
+
+
+//change grid size
+
+
 
 //color div grid
 
@@ -46,19 +53,20 @@ container.addEventListener("mousedown", () => {
 // pick a color
 
 const selectColor = document.getElementById('selectColor');
-selectColor.addEventListener('click',userColor);
+selectColor.addEventListener('click',defaultColor);
 
 document.querySelector('button.opener')
   .addEventListener('click', 
     e => document.querySelector('.btn-invisible').click()
   );
 
+function defaultColor(){
+    trueColor = "default";
+}
+
   function userColor(){ color = (document.getElementById('pickedColor').value)
   return color;
 }
-
-
-
 
 
 
@@ -77,7 +85,6 @@ function getRandomColor(){
 }
 
 
-
 //eraser button
 const eraserButton = document.getElementById('eraserButton');
 eraserButton.addEventListener('click',eraserFunction);
@@ -86,8 +93,6 @@ function eraserFunction() {
    return trueColor = 'white'
 } 
 
-
-//change grid size
 
 
 
