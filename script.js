@@ -9,15 +9,47 @@
 
 //create div grid
 
-for (let i = 0; i < 256; i++) {
+
+
+// inject style
+var style = document.createElement('style');
+style.innerHTML = gridLayout();
+document.head.appendChild(style);
+
+// get grid values
+function trueGrid(){
+    let gridValueTwo = (document.getElementById('gridValue').value)
+    return gridValueTwo;
+}
+let gridQuant =  (document.getElementById('gridValue').value)
+let gridMulti = gridQuant * gridQuant
+
+//create grid guides
+
+function gridLayout(){
+    let gridStyles = (
+        `#container {grid-template-columns: repeat(` + (trueGrid()) + `,`  + `1fr);`
+        + 
+        `grid-template-rows: repeat(` + (trueGrid()) + `,` + ` 1fr);}`
+        )
+        return gridStyles;
+}
+
+// function to reload grid
+
+
+gridValue.addEventListener("mouseup", () => {
+    window.location.reload()
+});
+
+
+// create grids
+
+for (let i = 0; i < gridMulti; i++) {
     const cellDiv = document.createElement('div');
     cellDiv.className = 'cellDiv';
     container.appendChild(cellDiv);
 }
-
-
-
-//change grid size
 
 
 
