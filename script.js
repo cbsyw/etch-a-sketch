@@ -16,18 +16,77 @@ for (let i = 0; i < 256; i++) {
 
 //color div grid
 
-const trueColor = 'black'
-container.addEventListener('mouseover', function (event) {
+let trueColor = 'default';
+
+function handleMouseover(event) {
     if (event.target.classList.contains('cellDiv')) {
-        event.target.style.backgroundColor = trueColor;
+
+        if (trueColor === 'white'){
+        event.target.style.backgroundColor = 'white';}
+
+        if (trueColor === 'rainbow'){
+            event.target.style.backgroundColor = getRandomColor();
+        }
+        if (trueColor === 'default'){
+            event.target.style.backgroundColor = userColor();
+        }
+        
     }
-});
+}
+
+function handleMouseup() {
+    container.removeEventListener("mouseover", handleMouseover);}
+
+container.addEventListener("mousedown", () => {
+    container.addEventListener('mouseover', handleMouseover);
+    container.addEventListener("mouseup", handleMouseup);});
+
+
+
+// pick a color
+
+const selectColor = document.getElementById('selectColor');
+selectColor.addEventListener('click',userColor);
+
+document.querySelector('button.opener')
+  .addEventListener('click', 
+    e => document.querySelector('.btn-invisible').click()
+  );
+
+  function userColor(){ color = (document.getElementById('pickedColor').value)
+  return color;
+}
+
+
 
 
 
 
 //rainbow button
+const rainbowButton = document.getElementById('rainbowButton');
+rainbowButton.addEventListener('click',rainbowFunction);
+
+
+function rainbowFunction() {
+     trueColor = "rainbow";
+}
+
+function getRandomColor(){
+    const color = '#' + Math.floor(Math.random()*1677721).toString(16)
+    return color;
+}
+
+
+
 //eraser button
+const eraserButton = document.getElementById('eraserButton');
+eraserButton.addEventListener('click',eraserFunction);
+
+function eraserFunction() {
+   return trueColor = 'white'
+} 
+
+
 //change grid size
 
 

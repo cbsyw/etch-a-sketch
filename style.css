@@ -31,3 +31,6 @@ body{
     gap: 8px;
     margin-right: 8px;
 }
+.btn-invisible {
+    display: none;
+ }
