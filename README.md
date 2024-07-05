@@ -1,3 +1,4 @@
 # etch-a-sketch
 
-DOM Manipulation
+Simple DOM Manipulation
+[Live Demo](https://cbsyw.github.io/etch-a-sketch/)
